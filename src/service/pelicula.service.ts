@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { iPelicula } from "src/module/Peliculas.module";
 
-const peliculasDB = [
+let peliculasDB = [
   {
     "titulo": "titulo 1",
     "reparto": [],
@@ -98,5 +98,17 @@ const peliculasDB = [
 export class PeliculaService {
   getPeliculas(): iPelicula[] {
     return peliculasDB
+  }
+
+  deletePeliculaById(id:number): iPelicula[]{
+    return peliculasDB = peliculasDB.filter((peli) => peli.id != id);
+  }
+
+  actualizarPelicula(id: number, peliDTO): iPelicula {
+    const peliEncontrada = peliculasDB.find((peli)=>peli.id ==id);
+    if(peliEncontrada){
+      peliEncontrada.duracion = peliDTO.duracion? peliDTO.duracion : peliEncontrada.duracion;
+      return peliEncontrada
+    }
   }
 }
