@@ -17,14 +17,14 @@ export class PeliculaController {
     const { id } = params;
     try {
       console.log(id);
-      return this.peliculaService.deletePeliculasById(id);
+      return this.peliculaService.deletePeliculaById(id);
     }catch (error) {
       console.log(error);
     }
   }
 
   @Patch('/:id')
-  actualizarPelicula(@Param() params: any, @Body() peliDTO: iPeliculaDto): iPelicula{
+  actualizarPelicula(@Param() params: any, @Body() peliDTO: iPelicula): iPelicula{
     const { id } = params;
     return this.peliculaService.actualizarPelicula(id, peliDTO)
   }
