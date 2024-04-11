@@ -3,9 +3,15 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PeliculaController } from './controllers/pelicula.controller';
 import { PeliculaService } from './service/pelicula.service';
+import { JwtModule } from '@nestjs/jwt';// npm install @nestjs/jwt bcryptjs
 
 @Module({
-  imports: [],
+  imports: [
+    JwtModule.register({
+      secret: 'clave secreta',
+      signOptions: { expiresIn: '1h'},
+    }),
+  ],
   controllers: [AppController, PeliculaController],
   providers: [AppService, PeliculaService],
 })
