@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { PeliculaController } from './controllers/pelicula.controller';
 import { PeliculaService } from './service/pelicula.service';
 import { JwtModule } from '@nestjs/jwt';// npm install @nestjs/jwt bcryptjs
+import { GenerosService } from './controllers/genero.controller';
+import { Genero}
 
 @Module({
   imports: [
